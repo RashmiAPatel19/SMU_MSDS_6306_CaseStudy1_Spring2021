@@ -1,0 +1,197 @@
+---
+title: "SMU 6306-Doing Data Science Case Study 1(Spring 2021)"
+output: 
+  html_notebook:
+    theme: spacelab
+    toc: yes
+    toc_folat: yes
+---
+
+
+
+# Project Description
+
+The purpose of this project is to study a dataset of 2410 beers produced by 558 
+breweries in the United States.  We have data on the style, ABV (alcohol by volume)
+and IBU (international bitterness units) of each beer, and we have the city
+and state for each brewery.  The goal is to answer some specific questions 
+about the data and to look for relationships or inferences which may be of
+interest to a hypothetical sponsor, Budweiser.
+
+# Load Packages {.tabset}
+
+These are all the packages that are used in the project to analyze the data and perform the agenda that were asked by the client.
+
+## tidyverse
+```{r}
+#check if tidyverse is already installed or not and if it is, then load it.
+if(!require(tidyverse))
+  #If it is not installed. then tell R to install it.
+  install.packages("tidyverse", dependencies = TRUE)
+#Once it is installed, tell R to load it.
+library(tidyverse)
+```
+## maps
+```{r}
+#check if maps is already installed or not and if it is, then load it.
+if(!require(maps))
+  #If it is not installed. then tell R to install it.
+  install.packages("maps", dependencies = TRUE)
+#Once it is installed, tell R to load it.
+library(maps)
+```
+## caret
+```{r}
+#check if caret is already installed or not and if it is, then load it.
+if(!require(caret))
+  #If it is not installed. then tell R to install it.
+  install.packages("caret", dependencies = TRUE)
+#Once it is installed, tell R to load it.
+library(caret)
+```
+## class
+```{r}
+#check if class is already installed or not and if it is, then load it.
+if(!require(class))
+  #If it is not installed. then tell R to install it.
+  install.packages("class", dependencies = TRUE)
+#Once it is installed, tell R to load it.
+library(class)
+```
+
+# Study design and data processing
+
+## Collection of the raw data
+Data was provided by the client in two text .csv files.
+1) Beers.csv
+2) Breweries.csv
+
+## Notes on the original (raw) data 
+Beers.csv
+2410 Observations.  
+Name: Name of the beer.   
+Beer_ID: Unique identifier of the beer.  
+ABV: Alcohol by volume of the beer.  
+IBU: International Bitterness Units of the beer.  
+Brewery_ID: Brewery id associated with the beer.  
+Style: Style of the beer.  
+Ounces: Ounces of beer.  
+
+Breweries.csv:  
+558 Observations.  
+Brew_ID: Unique identifier of the brewery.  
+Name: Name of the brewery.  
+City: City where the brewery is located.  
+State: U.S. State where the brewery is located.  
+
+# Description of the variables in the merged dataset
+
+## Beer_name  
+Name of the beer.   
+
+## Beer_ID
+Integer id number to uniquely identify each beer.
+
+## ABV
+Alcohol by volume (expressed as decimal fraction).
+
+## IBU
+International Bitterness Units of the beer (an integer).
+
+## Brew_ID
+Integer id number to uniquely identify the brewery which produced the beer.
+
+## Style
+Character string stored as a factor with 100 distinct values.
+
+## Ounces
+Serving size in ounces, represented as integer.
+
+## Brewery_name
+Character string stored as a factor with 551 distinct values.
+
+## City
+Character string stored as a factor with 384 distinct values.
+
+## State
+Two Character string stored as a factor with 51 distinct values.
+
+# Question of Interest for Case study 1
+
+## How many breweries are present in each state?
+A heatmap and a barchart is generated to answer this question which has following results:
+
+1) Colorado has the maximum number of breweries in United States with a count of 47.
+2) Other than Colorado, the states having most breweries are clustered along US border and coasts.
+3) Top 5 States with maximum breweries are-Colorado, California, Michigan, Oregon, and Texas.
+4) Bottom 4 States with minimum breweries are-DC, South Dakota, North Dakota, West Virginia because each state has only one brewery in entire state.
+
+## Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the merged file. 
+After merging the datasets there are 10 columns and 2410 rows.
+The top 6 and bottom 6 rows are obtained in this.
+
+## Address the missing values in each column.
+A lollipop plot is generated to answer this question which has following results:
+
+1) 62 null values are found in the ABV column which is approximately 2.6%.
+2) 1005 null values are found in the IBU column which is approximately 42%. 
+3) Bitterness data is not available for South Dakota(only 1 brewery in entire state).
+4) Thinking the missing values would be close to the average, we replaced them with the averages of the present values.
+
+
+## Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.
+A barchart is generated to answer this question which has following results:
+
+1) For almost all the states, we found median Alcohol by volume in between 5% to 6%.
+2) Top 5 States with maximum median ABV are-DC, West Virginia,New Mexico, Alabama, and Connecticut.
+3) Bottom 5 States with minimum median ABV are-Kansas, North Dakota, Wyoming, New Jersey and Utah.
+4) For most of the states having sufficient large samples, the median of International Bitterness Unit(IBU) is in mid 40’s 
+5) Top 5 States with maximum median IBU are-West Virginia,Delaware, Mississippi, Alabama, and Arkansas.
+6) Bottom 5 States with minimum median IBU are-North Dakota, Rhode Island, Wyoming, Iowa, Kansas.
+
+## Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
+The code that specifically determines the most alcoholic and most bitter beer is applied which yielded following results:
+
+1) Upslope Brewing Company, Colorado has the most Alcohol by volume beer with name “Lee Hill Series Vol. 5 - Belgian Style Quadrupel Ale” of 19.2 Oz with  ABV=12.8% and no IBU score is  given.
+2) Astoria Brewing Company, Oregon has the most bitter beer with name “Bitter Bitch Imperial IPA” of 12 Oz  with IBU=138 and ABV=8.2%.
+
+## Comment on the summary statistics and distribution of the ABV variable.
+The code that specifically determines overall summary statistics of ABV of whole data is applied which yielded following results:
+
+1) ABV distribution is relatively normal with a right skewness.
+2) Looking to graph, it seems IPA is contributing mostly to the right indicating that IPA has more alcohol content in it.
+3) Other statistics includes Minimum=0.01, 1st Quantile=0.05, Median=0.056, Mean=0.05977, 3rd Quantile=0.067, Maximum=0.128
+4) By imputing the mean the median changes to 0.0570 with other statistics being same.
+
+## Is there a relationship between bitterness and alcohol content.
+A scatterplot is generated to answer this question which has following results:
+
+1) There is a positive relationship between ABV and IBU.
+2) The graph having with null values account for a variation of approximately 45% estimated that the bitterness of a particular beer can be accounted by its alcohol content.
+3) The graph having with imputed mean values account for a variation of approximately 27% estimated that the bitterness of a particular beer can be accounted by its alcohol content because of one non-alcoholic beer.
+
+## Investigate the difference between IPAs and other Ales and use KNN for prediction.
+The code is applied which investigate the difference between IPAs and other Ales and KNN classifier is used for prediction which yielded following results:
+
+1) We trained the data using K-nearest neighbor classifier with 100 iterations and then tested the model for highest accuracy.
+2) A k-nearest model (with NA’s omitted) at k=5 gives an accuracy of 85%, which means the number of beers correctly classified as either IPA or other Ale.
+3)The model has a sensitivity of over 88%--which means over 88%  of the Ales were identified correctly. 
+4) Finally, the model has a specificity of over 81%--which means over 81% of the IPA's  were identified correctly.
+
+
+## Extra insights that can be useful
+
+### ABV and IBU relationship for IPA and Ale.
+A scatterplot is generated to answer this question which has following results:
+
+1) IPA has positive relationship with a variation of approximately 41% estimated that the bitterness(IBU) of a particular beer can be accounted by its alcohol content(ABV).
+2) Ale has a positive relationship lower than IPA with a variation of approximately 24% estimated that the bitterness(IBU) of a particular beer can be accounted by its alcohol content(ABV).
+
+### Alcohol Consumption per capita per brewery Count.
+A heatmap and a barchart is generated to answer this question which has following results:
+
+1) California has the highest alcohol consumption per capita per brewery count at 1.624 gallons.
+2) Most of the states have alcohol consumption per capita brewery count is in between 0.026 to 0.5 gallons
+3) The top 5 states account for 42% of all the alcohol consumed per capita per brewery count. 
+4) The bottom 5 states account for 1.32% of all the alcohol consumed per capita per brewery count.
+
