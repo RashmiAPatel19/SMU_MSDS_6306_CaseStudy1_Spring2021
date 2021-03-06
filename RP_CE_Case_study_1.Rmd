@@ -338,11 +338,12 @@ for(j in 1:iterations)
   
 }
 
-plot(seq(1,numks,1),MeanAcc, type = "l")
+
 
 MeanAcc = colMeans(masterAcc)
 MeanSens = colMeans(masterSens)
 MeanSpec = colMeans(masterSpec)
+plot(seq(1,numks,1),MeanAcc, type = "l",xlab ="Values of k tested", ylab="Mean Accuracy")
 
 
 #which is the best k
@@ -492,8 +493,22 @@ total_bottom5
 
 
 
-!!!CONCLUSION
+!!!Conclusion
 
+We can conclude the following to the analysis of the case study:
+
+1) There number of breweries in each state where Colorado has highest number of brewery with count=47.
+2) We classified 100 styles of beers in certain classes where IPA and Ale account for 64%.
+3) We addressed the missing values where ABV had 62 missing values and IBU had 1005 missing values.
+4) We saw the median ABV and IBU by each state, and the top 5 and bottom 5 states with maximum and minimum median ABV and IBU.
+5) We found that the most alcoholic beer is in Colorado and the most bitter beer is in Oregon.
+6) Some summary statistics of ABV variable for each class of beer.
+7) We saw the relationship between the IBU and ABV for all beer.
+8) We applied KNN classifier to build machine learning model that yields 85% accuracy in prediction.
+9) We found some extra insights that includes- the relationship between ABV and IBU specifically for Ale and IPA.
+10) We took an external data which had alcohol consumption per capita and did some analysis to fine the alcohol consumption per capita per brewery count.
+
+!!!Further studies and recommendations
 
 1)Budweiser can increase their market share by tapping into underdeveloped craft brew market by their subsidiary breweries.
 2)Preliminary analysis shows that some states warrant further investigation in order to expand Budweiser’s share of craft brew market.
