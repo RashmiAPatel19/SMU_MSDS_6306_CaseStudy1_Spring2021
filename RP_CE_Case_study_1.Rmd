@@ -409,7 +409,7 @@ summary(ipa_ounce)
 
 
 
-Insight 2: "Alcohol Consumption per capita per brewery Count"
+Insight 2: "Alcohol Consumption per brewery Count"
 ```{r}
 alcohol_cons = read.csv(file.choose())
 #lookup = data.frame(abb = state.abb, State = state.name) #make a dataframe of state names and abbreviations
@@ -436,14 +436,14 @@ alcohol_cons2$Gallons = as.numeric(alcohol_cons2$Gallons) #make numeric again
 
 alcohol_cons2$abb <- trimws(alcohol_cons2$abb, which = c("both"))
 Brew_df$State <- trimws(Brew_df$State, which = c("both"))
-#alcohol consumption per capita per brewery
+#alcohol consumption per brewery
 ac_pc_pb = merge(Brew_df, alcohol_cons2, by.x = "State", by.y = "abb")
 ac_pc_pb2 = ac_pc_pb %>% summarise(state = State, ac_pc_pb = Gallons/n())
 ac_pc_pb2
 ggplot(ac_pc_pb2,aes(x=reorder(as.factor(state),-ac_pc_pb), y=ac_pc_pb))+
   geom_col(fill="dark green", color="black")+
-  labs(x="US States",y="Alcohol Consumption per capita per brewery count") +
-  ggtitle("Alcohol consumption per capita per brewey count in each state") +
+  labs(x="US States",y="Alcohol Consumption per brewery count") +
+  ggtitle("Alcohol consumption per brewery count in each state") +
   theme(axis.text.x = element_text(angle = 90))
 
 order1=ac_pc_pb%>%summarise(ac_pc_pb=ac_pc_pb$Gallons/n())
@@ -465,7 +465,7 @@ map.df <- map.df[order(map.df$order),] #sort the data
 ggplot(map.df, aes(x=long, y=lat, group=group)) +
   geom_polygon(aes(fill=ac_pc_pb)) + geom_path() +
   scale_fill_gradientn(colours=rev(hcl.colors(10, palette = "Emrld")),na.value="grey90") +
-  ggtitle("Total alcohol consumption per capita per brewey count in each state") +labs(x="Longitude", y="Latitude") +
+  ggtitle("Total alcohol consumption per brewery count in each state") +labs(x="Longitude", y="Latitude") +
   coord_map()
 
 total_gallons=sum(alcohol_cons2$Gallons)
@@ -486,31 +486,21 @@ total_bottom5=(sum(bottom5_data)/total_gallons)*100
 total_bottom5
 
 ```
-1) California has the highest alcohol consumption per capita per brewery count at 1.624 gallons.
-2) Most of the states have alcohol consumption per capita brewery count is in between 0.026 to 0.5 gallons
-3) The top 5 states account for 42% of all the alcohol consumed per capita per brewery count. 
-4) The bottom 5 states account for 1.32% of all the alcohol consumed per capita per brewery count.
+1) California has the highest alcohol consumption per brewery count at 1.624 gallons.
+2) Most of the states have alcohol consumption per brewery count is in between 0.026 to 0.5 gallons
+3) The top 5 states account for 42% of all the alcohol consumed per brewery count. 
+4) The bottom 5 states account for 1.32% of all the alcohol consumed per brewery count.
 
 
 
 !!!Conclusion
 
-We can conclude the following to the analysis of the case study:
+1) In conclusion, we found that IPAs and other ales make up 64% of all craft beers. There's a linear relationship between alcohol content and bitterness within a beer,and the relationship is stronger for IPAs than for other ales. 
+2) Given alcohol content and international bitterness rating, we can identify a beer as an IPA or as an Ale with over 85% accuracy. 
+3) Finally, the five states with the greatest alcohol consumption per brewery make up over 40% of total alcohol consumption per brewery. If Budweiser wants to increase their market share by tapping into the craft brew market, they should focus on these states, and they should focus on IPAs or other ales. Despite the market saturation, these seem to be the states with the most demand.
 
-1) There number of breweries in each state where Colorado has highest number of brewery with count=47.
-2) We classified 100 styles of beers in certain classes where IPA and Ale account for 64%.
-3) We addressed the missing values where ABV had 62 missing values and IBU had 1005 missing values.
-4) We saw the median ABV and IBU by each state, and the top 5 and bottom 5 states with maximum and minimum median ABV and IBU.
-5) We found that the most alcoholic beer is in Colorado and the most bitter beer is in Oregon.
-6) Some summary statistics of ABV variable for each class of beer.
-7) We saw the relationship between the IBU and ABV for all beer.
-8) We applied KNN classifier to build machine learning model that yields 85% accuracy in prediction.
-9) We found some extra insights that includes- the relationship between ABV and IBU specifically for Ale and IPA.
-10) We took an external data which had alcohol consumption per capita and did some analysis to fine the alcohol consumption per capita per brewery count.
 
 !!!Further studies and recommendations
 
-1)Budweiser can increase their market share by tapping into underdeveloped craft brew market by their subsidiary breweries.
-2)Preliminary analysis shows that some states warrant further investigation in order to expand Budweiser’s share of craft brew market.
-3)Review various sales data on top craft beers.
-4)Review the brewery and alcohol laws for the state.
+1)Review various sales data on top craft beers.
+2)Review the brewery and alcohol laws for the state.

@@ -1806,19 +1806,14 @@ summary {
 <li><a href="#city">City</a></li>
 <li><a href="#state">State</a></li>
 </ul></li>
-<li><a href="#question-of-interest-for-case-study-1">Question of Interest for Case study 1</a><ul>
-<li><a href="#how-many-breweries-are-present-in-each-state">How many breweries are present in each state?</a></li>
-<li><a href="#merge-beer-data-with-the-breweries-data.-print-the-first-6-observations-and-the-last-six-observations-to-check-the-merged-file.">Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the merged file.</a></li>
-<li><a href="#address-the-missing-values-in-each-column.">Address the missing values in each column.</a></li>
-<li><a href="#compute-the-median-alcohol-content-and-international-bitterness-unit-for-each-state.-plot-a-bar-chart-to-compare.">Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.</a></li>
-<li><a href="#which-state-has-the-maximum-alcoholic-abv-beer-which-state-has-the-most-bitter-ibu-beer">Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?</a></li>
-<li><a href="#comment-on-the-summary-statistics-and-distribution-of-the-abv-variable.">Comment on the summary statistics and distribution of the ABV variable.</a></li>
-<li><a href="#is-there-a-relationship-between-bitterness-and-alcohol-content.">Is there a relationship between bitterness and alcohol content.</a></li>
-<li><a href="#investigate-the-difference-between-ipas-and-other-ales-and-use-knn-for-prediction.">Investigate the difference between IPAs and other Ales and use KNN for prediction.</a></li>
-<li><a href="#extra-insights-that-can-be-useful">Extra insights that can be useful</a><ul>
-<li><a href="#abv-and-ibu-relationship-for-ipa-and-ale.">ABV and IBU relationship for IPA and Ale.</a></li>
-<li><a href="#alcohol-consumption-per-capita-per-brewery-count.">Alcohol Consumption per capita per brewery Count.</a></li>
+<li><a href="#for-finding-some-extra-useful-insights">For finding some extra useful insights</a><ul>
+<li><a href="#collection-of-external-data.">Collection of external data.</a></li>
+<li><a href="#notes-on-the-external-data">Notes on the external data</a></li>
 </ul></li>
+<li><a href="#description-of-the-variables-in-the-merged-dataset-1">Description of the variables in the merged dataset</a><ul>
+<li><a href="#rank">Rank</a></li>
+<li><a href="#state-1">State</a></li>
+<li><a href="#overall-gallons">Overall Gallons</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1826,7 +1821,7 @@ summary {
 <!-- rnb-text-begin -->
 <div id="project-description" class="section level1">
 <h1>Project Description</h1>
-<p>The purpose of this project is to study a dataset of 2410 beers produced by 558 breweries in the United States. We have data on the style, ABV (alcohol by volume) and IBU (international bitterness units) of each beer, and we have the city and state for each brewery. The goal is to answer some specific questions about the data and to look for relationships or inferences which may be of interest to a hypothetical sponsor, Budweiser.</p>
+<p>The purpose of this project is to study a dataset of 2410 beers produced by 558 breweries in the United States. We have data on the style, ABV (alcohol by volume) and IBU (international bitterness units) of each beer, and we have the city and state for each brewery. The goal is to answer some specific questions about the data and to look for relationships or inferences which may be of interest to a sponsor, Budweiser.</p>
 </div>
 <div id="load-packages" class="section level1 tabset">
 <h1>Load Packages</h1>
@@ -1959,105 +1954,35 @@ State: U.S. State where the brewery is located.</p>
 <p>Two Character string stored as a factor with 51 distinct values.</p>
 </div>
 </div>
-<div id="question-of-interest-for-case-study-1" class="section level1">
-<h1>Question of Interest for Case study 1</h1>
-<div id="how-many-breweries-are-present-in-each-state" class="section level2">
-<h2>How many breweries are present in each state?</h2>
-<p>A heatmap and a barchart is generated to answer this question which has following results:</p>
-<ol style="list-style-type: decimal">
-<li>Colorado has the maximum number of breweries in United States with a count of 47.</li>
-<li>Other than Colorado, the states having most breweries are clustered along US border and coasts.</li>
-<li>Top 5 States with maximum breweries are-Colorado, California, Michigan, Oregon, and Texas.</li>
-<li>Bottom 4 States with minimum breweries are-DC, South Dakota, North Dakota, West Virginia because each state has only one brewery in entire state.</li>
-</ol>
+<div id="for-finding-some-extra-useful-insights" class="section level1">
+<h1>For finding some extra useful insights</h1>
+<div id="collection-of-external-data." class="section level2">
+<h2>Collection of external data.</h2>
+<p>A new csv named “Alcohol_consumption.csv” is used having alcohol consumption per brewery Count.</p>
 </div>
-<div id="merge-beer-data-with-the-breweries-data.-print-the-first-6-observations-and-the-last-six-observations-to-check-the-merged-file." class="section level2">
-<h2>Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the merged file.</h2>
-<p>After merging the datasets there are 10 columns and 2410 rows. The top 6 and bottom 6 rows are obtained in this.</p>
+<div id="notes-on-the-external-data" class="section level2">
+<h2>Notes on the external data</h2>
+<p>Alcohol_consumption.csv 51 observations Rank: The ranks are assigned to each state according to highest to lowest consumption State: State Name Gallons Overall: The values given are in Millions</p>
 </div>
-<div id="address-the-missing-values-in-each-column." class="section level2">
-<h2>Address the missing values in each column.</h2>
-<p>A lollipop plot is generated to answer this question which has following results:</p>
-<ol style="list-style-type: decimal">
-<li>62 null values are found in the ABV column which is approximately 2.6%.</li>
-<li>1005 null values are found in the IBU column which is approximately 42%.</li>
-<li>Bitterness data is not available for South Dakota(only 1 brewery in entire state).</li>
-<li>Thinking the missing values would be close to the average, we replaced them with the averages of the present values.</li>
-</ol>
 </div>
-<div id="compute-the-median-alcohol-content-and-international-bitterness-unit-for-each-state.-plot-a-bar-chart-to-compare." class="section level2">
-<h2>Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.</h2>
-<p>A barchart is generated to answer this question which has following results:</p>
-<ol style="list-style-type: decimal">
-<li>For almost all the states, we found median Alcohol by volume in between 5% to 6%.</li>
-<li>Top 5 States with maximum median ABV are-DC, West Virginia,New Mexico, Alabama, and Connecticut.</li>
-<li>Bottom 5 States with minimum median ABV are-Kansas, North Dakota, Wyoming, New Jersey and Utah.</li>
-<li>For most of the states having sufficient large samples, the median of International Bitterness Unit(IBU) is in mid 40’s</li>
-<li>Top 5 States with maximum median IBU are-West Virginia,Delaware, Mississippi, Alabama, and Arkansas.</li>
-<li>Bottom 5 States with minimum median IBU are-North Dakota, Rhode Island, Wyoming, Iowa, Kansas.</li>
-</ol>
+<div id="description-of-the-variables-in-the-merged-dataset-1" class="section level1">
+<h1>Description of the variables in the merged dataset</h1>
+<div id="rank" class="section level2">
+<h2>Rank</h2>
+<p>Integer id number to uniquely identify the rank of each state.</p>
 </div>
-<div id="which-state-has-the-maximum-alcoholic-abv-beer-which-state-has-the-most-bitter-ibu-beer" class="section level2">
-<h2>Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?</h2>
-<p>The code that specifically determines the most alcoholic and most bitter beer is applied which yielded following results:</p>
-<ol style="list-style-type: decimal">
-<li>Upslope Brewing Company, Colorado has the most Alcohol by volume beer with name “Lee Hill Series Vol. 5 - Belgian Style Quadrupel Ale” of 19.2 Oz with ABV=12.8% and no IBU score is given.</li>
-<li>Astoria Brewing Company, Oregon has the most bitter beer with name “Bitter Bitch Imperial IPA” of 12 Oz with IBU=138 and ABV=8.2%.</li>
-</ol>
+<div id="state-1" class="section level2">
+<h2>State</h2>
+<p>Character string containing the state name</p>
 </div>
-<div id="comment-on-the-summary-statistics-and-distribution-of-the-abv-variable." class="section level2">
-<h2>Comment on the summary statistics and distribution of the ABV variable.</h2>
-<p>The code that specifically determines overall summary statistics of ABV of whole data is applied which yielded following results:</p>
-<ol style="list-style-type: decimal">
-<li>ABV distribution is relatively normal with a right skewness.</li>
-<li>Looking to graph, it seems IPA is contributing mostly to the right indicating that IPA has more alcohol content in it.</li>
-<li>Other statistics includes Minimum=0.01, 1st Quantile=0.05, Median=0.056, Mean=0.05977, 3rd Quantile=0.067, Maximum=0.128</li>
-<li>By imputing the mean the median changes to 0.0570 with other statistics being same.</li>
-</ol>
-</div>
-<div id="is-there-a-relationship-between-bitterness-and-alcohol-content." class="section level2">
-<h2>Is there a relationship between bitterness and alcohol content.</h2>
-<p>A scatterplot is generated to answer this question which has following results:</p>
-<ol style="list-style-type: decimal">
-<li>There is a positive relationship between ABV and IBU.</li>
-<li>The graph having with null values account for a variation of approximately 45% estimated that the bitterness of a particular beer can be accounted by its alcohol content.</li>
-<li>The graph having with imputed mean values account for a variation of approximately 27% estimated that the bitterness of a particular beer can be accounted by its alcohol content because of one non-alcoholic beer.</li>
-</ol>
-</div>
-<div id="investigate-the-difference-between-ipas-and-other-ales-and-use-knn-for-prediction." class="section level2">
-<h2>Investigate the difference between IPAs and other Ales and use KNN for prediction.</h2>
-<p>The code is applied which investigate the difference between IPAs and other Ales and KNN classifier is used for prediction which yielded following results:</p>
-<ol style="list-style-type: decimal">
-<li>We trained the data using K-nearest neighbor classifier with 100 iterations and then tested the model for highest accuracy.</li>
-<li>A k-nearest model (with NA’s omitted) at k=5 gives an accuracy of 85%, which means the number of beers correctly classified as either IPA or other Ale. 3)The model has a sensitivity of over 88%–which means over 88% of the Ales were identified correctly.</li>
-<li>Finally, the model has a specificity of over 81%–which means over 81% of the IPA’s were identified correctly.</li>
-</ol>
-</div>
-<div id="extra-insights-that-can-be-useful" class="section level2">
-<h2>Extra insights that can be useful</h2>
-<div id="abv-and-ibu-relationship-for-ipa-and-ale." class="section level3">
-<h3>ABV and IBU relationship for IPA and Ale.</h3>
-<p>A scatterplot is generated to answer this question which has following results:</p>
-<ol style="list-style-type: decimal">
-<li>IPA has positive relationship with a variation of approximately 41% estimated that the bitterness(IBU) of a particular beer can be accounted by its alcohol content(ABV).</li>
-<li>Ale has a positive relationship lower than IPA with a variation of approximately 24% estimated that the bitterness(IBU) of a particular beer can be accounted by its alcohol content(ABV).</li>
-</ol>
-</div>
-<div id="alcohol-consumption-per-capita-per-brewery-count." class="section level3">
-<h3>Alcohol Consumption per capita per brewery Count.</h3>
-<p>A new csv named “alcohol consumption.csv” is used in this question. A heatmap and a barchart is generated to answer this question which has following results:</p>
-<ol style="list-style-type: decimal">
-<li>California has the highest alcohol consumption per capita per brewery count at 1.624 gallons.</li>
-<li>Most of the states have alcohol consumption per capita brewery count is in between 0.026 to 0.5 gallons</li>
-<li>The top 5 states account for 42% of all the alcohol consumed per capita per brewery count.</li>
-<li>The bottom 5 states account for 1.32% of all the alcohol consumed per capita per brewery count.</li>
-</ol>
+<div id="overall-gallons" class="section level2">
+<h2>Overall Gallons</h2>
+<p>Integer variable that has values in million gallons</p>
 <!-- rnb-text-end -->
 </div>
 </div>
-</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNNVSA2MzA2LURvaW5nIERhdGEgU2NpZW5jZSBDYXNlIFN0dWR5IDEoU3ByaW5nIDIwMjEpIg0Kb3V0cHV0OiANCiAgaHRtbF9ub3RlYm9vazoNCiAgICB0aGVtZTogc3BhY2VsYWINCiAgICB0b2M6IHllcw0KICAgIHRvY19mb2xhdDogeWVzDQotLS0NCg0KDQoNCiMgUHJvamVjdCBEZXNjcmlwdGlvbg0KDQpUaGUgcHVycG9zZSBvZiB0aGlzIHByb2plY3QgaXMgdG8gc3R1ZHkgYSBkYXRhc2V0IG9mIDI0MTAgYmVlcnMgcHJvZHVjZWQgYnkgNTU4IA0KYnJld2VyaWVzIGluIHRoZSBVbml0ZWQgU3RhdGVzLiAgV2UgaGF2ZSBkYXRhIG9uIHRoZSBzdHlsZSwgQUJWIChhbGNvaG9sIGJ5IHZvbHVtZSkNCmFuZCBJQlUgKGludGVybmF0aW9uYWwgYml0dGVybmVzcyB1bml0cykgb2YgZWFjaCBiZWVyLCBhbmQgd2UgaGF2ZSB0aGUgY2l0eQ0KYW5kIHN0YXRlIGZvciBlYWNoIGJyZXdlcnkuICBUaGUgZ29hbCBpcyB0byBhbnN3ZXIgc29tZSBzcGVjaWZpYyBxdWVzdGlvbnMgDQphYm91dCB0aGUgZGF0YSBhbmQgdG8gbG9vayBmb3IgcmVsYXRpb25zaGlwcyBvciBpbmZlcmVuY2VzIHdoaWNoIG1heSBiZSBvZg0KaW50ZXJlc3QgdG8gYSBoeXBvdGhldGljYWwgc3BvbnNvciwgQnVkd2Vpc2VyLg0KDQojIExvYWQgUGFja2FnZXMgey50YWJzZXR9DQoNClRoZXNlIGFyZSBhbGwgdGhlIHBhY2thZ2VzIHRoYXQgYXJlIHVzZWQgaW4gdGhlIHByb2plY3QgdG8gYW5hbHl6ZSB0aGUgZGF0YSBhbmQgcGVyZm9ybSB0aGUgYWdlbmRhIHRoYXQgd2VyZSBhc2tlZCBieSB0aGUgY2xpZW50Lg0KDQojIyB0aWR5dmVyc2UNCmBgYHtyfQ0KI2NoZWNrIGlmIHRpZHl2ZXJzZSBpcyBhbHJlYWR5IGluc3RhbGxlZCBvciBub3QgYW5kIGlmIGl0IGlzLCB0aGVuIGxvYWQgaXQuDQppZighcmVxdWlyZSh0aWR5dmVyc2UpKQ0KICAjSWYgaXQgaXMgbm90IGluc3RhbGxlZC4gdGhlbiB0ZWxsIFIgdG8gaW5zdGFsbCBpdC4NCiAgaW5zdGFsbC5wYWNrYWdlcygidGlkeXZlcnNlIiwgZGVwZW5kZW5jaWVzID0gVFJVRSkNCiNPbmNlIGl0IGlzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmBgYA0KIyMgbWFwcw0KYGBge3J9DQojY2hlY2sgaWYgbWFwcyBpcyBhbHJlYWR5IGluc3RhbGxlZCBvciBub3QgYW5kIGlmIGl0IGlzLCB0aGVuIGxvYWQgaXQuDQppZighcmVxdWlyZShtYXBzKSkNCiAgI0lmIGl0IGlzIG5vdCBpbnN0YWxsZWQuIHRoZW4gdGVsbCBSIHRvIGluc3RhbGwgaXQuDQogIGluc3RhbGwucGFja2FnZXMoIm1hcHMiLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQ0KI09uY2UgaXQgaXMgaW5zdGFsbGVkLCB0ZWxsIFIgdG8gbG9hZCBpdC4NCmxpYnJhcnkobWFwcykNCmBgYA0KIyMgY2FyZXQNCmBgYHtyfQ0KI2NoZWNrIGlmIGNhcmV0IGlzIGFscmVhZHkgaW5zdGFsbGVkIG9yIG5vdCBhbmQgaWYgaXQgaXMsIHRoZW4gbG9hZCBpdC4NCmlmKCFyZXF1aXJlKGNhcmV0KSkNCiAgI0lmIGl0IGlzIG5vdCBpbnN0YWxsZWQuIHRoZW4gdGVsbCBSIHRvIGluc3RhbGwgaXQuDQogIGluc3RhbGwucGFja2FnZXMoImNhcmV0IiwgZGVwZW5kZW5jaWVzID0gVFJVRSkNCiNPbmNlIGl0IGlzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuDQpsaWJyYXJ5KGNhcmV0KQ0KYGBgDQojIyBjbGFzcw0KYGBge3J9DQojY2hlY2sgaWYgY2xhc3MgaXMgYWxyZWFkeSBpbnN0YWxsZWQgb3Igbm90IGFuZCBpZiBpdCBpcywgdGhlbiBsb2FkIGl0Lg0KaWYoIXJlcXVpcmUoY2xhc3MpKQ0KICAjSWYgaXQgaXMgbm90IGluc3RhbGxlZC4gdGhlbiB0ZWxsIFIgdG8gaW5zdGFsbCBpdC4NCiAgaW5zdGFsbC5wYWNrYWdlcygiY2xhc3MiLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQ0KI09uY2UgaXQgaXMgaW5zdGFsbGVkLCB0ZWxsIFIgdG8gbG9hZCBpdC4NCmxpYnJhcnkoY2xhc3MpDQpgYGANCg0KIyBTdHVkeSBkZXNpZ24gYW5kIGRhdGEgcHJvY2Vzc2luZw0KDQojIyBDb2xsZWN0aW9uIG9mIHRoZSByYXcgZGF0YQ0KRGF0YSB3YXMgcHJvdmlkZWQgYnkgdGhlIGNsaWVudCBpbiB0d28gdGV4dCAuY3N2IGZpbGVzLg0KMSkgQmVlcnMuY3N2DQoyKSBCcmV3ZXJpZXMuY3N2DQoNCiMjIE5vdGVzIG9uIHRoZSBvcmlnaW5hbCAocmF3KSBkYXRhIA0KQmVlcnMuY3N2DQoyNDEwIE9ic2VydmF0aW9ucy4gIA0KTmFtZTogTmFtZSBvZiB0aGUgYmVlci4gICANCkJlZXJfSUQ6IFVuaXF1ZSBpZGVudGlmaWVyIG9mIHRoZSBiZWVyLiAgDQpBQlY6IEFsY29ob2wgYnkgdm9sdW1lIG9mIHRoZSBiZWVyLiAgDQpJQlU6IEludGVybmF0aW9uYWwgQml0dGVybmVzcyBVbml0cyBvZiB0aGUgYmVlci4gIA0KQnJld2VyeV9JRDogQnJld2VyeSBpZCBhc3NvY2lhdGVkIHdpdGggdGhlIGJlZXIuICANClN0eWxlOiBTdHlsZSBvZiB0aGUgYmVlci4gIA0KT3VuY2VzOiBPdW5jZXMgb2YgYmVlci4gIA0KDQpCcmV3ZXJpZXMuY3N2OiAgDQo1NTggT2JzZXJ2YXRpb25zLiAgDQpCcmV3X0lEOiBVbmlxdWUgaWRlbnRpZmllciBvZiB0aGUgYnJld2VyeS4gIA0KTmFtZTogTmFtZSBvZiB0aGUgYnJld2VyeS4gIA0KQ2l0eTogQ2l0eSB3aGVyZSB0aGUgYnJld2VyeSBpcyBsb2NhdGVkLiAgDQpTdGF0ZTogVS5TLiBTdGF0ZSB3aGVyZSB0aGUgYnJld2VyeSBpcyBsb2NhdGVkLiAgDQoNCiMgRGVzY3JpcHRpb24gb2YgdGhlIHZhcmlhYmxlcyBpbiB0aGUgbWVyZ2VkIGRhdGFzZXQNCg0KIyMgQmVlcl9uYW1lICANCk5hbWUgb2YgdGhlIGJlZXIuICAgDQoNCiMjIEJlZXJfSUQNCkludGVnZXIgaWQgbnVtYmVyIHRvIHVuaXF1ZWx5IGlkZW50aWZ5IGVhY2ggYmVlci4NCg0KIyMgQUJWDQpBbGNvaG9sIGJ5IHZvbHVtZSAoZXhwcmVzc2VkIGFzIGRlY2ltYWwgZnJhY3Rpb24pLg0KDQojIyBJQlUNCkludGVybmF0aW9uYWwgQml0dGVybmVzcyBVbml0cyBvZiB0aGUgYmVlciAoYW4gaW50ZWdlcikuDQoNCiMjIEJyZXdfSUQNCkludGVnZXIgaWQgbnVtYmVyIHRvIHVuaXF1ZWx5IGlkZW50aWZ5IHRoZSBicmV3ZXJ5IHdoaWNoIHByb2R1Y2VkIHRoZSBiZWVyLg0KDQojIyBTdHlsZQ0KQ2hhcmFjdGVyIHN0cmluZyBzdG9yZWQgYXMgYSBmYWN0b3Igd2l0aCAxMDAgZGlzdGluY3QgdmFsdWVzLg0KDQojIyBPdW5jZXMNClNlcnZpbmcgc2l6ZSBpbiBvdW5jZXMsIHJlcHJlc2VudGVkIGFzIGludGVnZXIuDQoNCiMjIEJyZXdlcnlfbmFtZQ0KQ2hhcmFjdGVyIHN0cmluZyBzdG9yZWQgYXMgYSBmYWN0b3Igd2l0aCA1NTEgZGlzdGluY3QgdmFsdWVzLg0KDQojIyBDaXR5DQpDaGFyYWN0ZXIgc3RyaW5nIHN0b3JlZCBhcyBhIGZhY3RvciB3aXRoIDM4NCBkaXN0aW5jdCB2YWx1ZXMuDQoNCiMjIFN0YXRlDQpUd28gQ2hhcmFjdGVyIHN0cmluZyBzdG9yZWQgYXMgYSBmYWN0b3Igd2l0aCA1MSBkaXN0aW5jdCB2YWx1ZXMuDQoNCiMgUXVlc3Rpb24gb2YgSW50ZXJlc3QgZm9yIENhc2Ugc3R1ZHkgMQ0KDQojIyBIb3cgbWFueSBicmV3ZXJpZXMgYXJlIHByZXNlbnQgaW4gZWFjaCBzdGF0ZT8NCkEgaGVhdG1hcCBhbmQgYSBiYXJjaGFydCBpcyBnZW5lcmF0ZWQgdG8gYW5zd2VyIHRoaXMgcXVlc3Rpb24gd2hpY2ggaGFzIGZvbGxvd2luZyByZXN1bHRzOg0KDQoxKSBDb2xvcmFkbyBoYXMgdGhlIG1heGltdW0gbnVtYmVyIG9mIGJyZXdlcmllcyBpbiBVbml0ZWQgU3RhdGVzIHdpdGggYSBjb3VudCBvZiA0Ny4NCjIpIE90aGVyIHRoYW4gQ29sb3JhZG8sIHRoZSBzdGF0ZXMgaGF2aW5nIG1vc3QgYnJld2VyaWVzIGFyZSBjbHVzdGVyZWQgYWxvbmcgVVMgYm9yZGVyIGFuZCBjb2FzdHMuDQozKSBUb3AgNSBTdGF0ZXMgd2l0aCBtYXhpbXVtIGJyZXdlcmllcyBhcmUtQ29sb3JhZG8sIENhbGlmb3JuaWEsIE1pY2hpZ2FuLCBPcmVnb24sIGFuZCBUZXhhcy4NCjQpIEJvdHRvbSA0IFN0YXRlcyB3aXRoIG1pbmltdW0gYnJld2VyaWVzIGFyZS1EQywgU291dGggRGFrb3RhLCBOb3J0aCBEYWtvdGEsIFdlc3QgVmlyZ2luaWEgYmVjYXVzZSBlYWNoIHN0YXRlIGhhcyBvbmx5IG9uZSBicmV3ZXJ5IGluIGVudGlyZSBzdGF0ZS4NCg0KIyMgTWVyZ2UgYmVlciBkYXRhIHdpdGggdGhlIGJyZXdlcmllcyBkYXRhLiBQcmludCB0aGUgZmlyc3QgNiBvYnNlcnZhdGlvbnMgYW5kIHRoZSBsYXN0IHNpeCBvYnNlcnZhdGlvbnMgdG8gY2hlY2sgdGhlIG1lcmdlZCBmaWxlLiANCkFmdGVyIG1lcmdpbmcgdGhlIGRhdGFzZXRzIHRoZXJlIGFyZSAxMCBjb2x1bW5zIGFuZCAyNDEwIHJvd3MuDQpUaGUgdG9wIDYgYW5kIGJvdHRvbSA2IHJvd3MgYXJlIG9idGFpbmVkIGluIHRoaXMuDQoNCiMjIEFkZHJlc3MgdGhlIG1pc3NpbmcgdmFsdWVzIGluIGVhY2ggY29sdW1uLg0KQSBsb2xsaXBvcCBwbG90IGlzIGdlbmVyYXRlZCB0byBhbnN3ZXIgdGhpcyBxdWVzdGlvbiB3aGljaCBoYXMgZm9sbG93aW5nIHJlc3VsdHM6DQoNCjEpIDYyIG51bGwgdmFsdWVzIGFyZSBmb3VuZCBpbiB0aGUgQUJWIGNvbHVtbiB3aGljaCBpcyBhcHByb3hpbWF0ZWx5IDIuNiUuDQoyKSAxMDA1IG51bGwgdmFsdWVzIGFyZSBmb3VuZCBpbiB0aGUgSUJVIGNvbHVtbiB3aGljaCBpcyBhcHByb3hpbWF0ZWx5IDQyJS4gDQozKSBCaXR0ZXJuZXNzIGRhdGEgaXMgbm90IGF2YWlsYWJsZSBmb3IgU291dGggRGFrb3RhKG9ubHkgMSBicmV3ZXJ5IGluIGVudGlyZSBzdGF0ZSkuDQo0KSBUaGlua2luZyB0aGUgbWlzc2luZyB2YWx1ZXMgd291bGQgYmUgY2xvc2UgdG8gdGhlIGF2ZXJhZ2UsIHdlIHJlcGxhY2VkIHRoZW0gd2l0aCB0aGUgYXZlcmFnZXMgb2YgdGhlIHByZXNlbnQgdmFsdWVzLg0KDQoNCiMjIENvbXB1dGUgdGhlIG1lZGlhbiBhbGNvaG9sIGNvbnRlbnQgYW5kIGludGVybmF0aW9uYWwgYml0dGVybmVzcyB1bml0IGZvciBlYWNoIHN0YXRlLiBQbG90IGEgYmFyIGNoYXJ0IHRvIGNvbXBhcmUuDQpBIGJhcmNoYXJ0IGlzIGdlbmVyYXRlZCB0byBhbnN3ZXIgdGhpcyBxdWVzdGlvbiB3aGljaCBoYXMgZm9sbG93aW5nIHJlc3VsdHM6DQoNCjEpIEZvciBhbG1vc3QgYWxsIHRoZSBzdGF0ZXMsIHdlIGZvdW5kIG1lZGlhbiBBbGNvaG9sIGJ5IHZvbHVtZSBpbiBiZXR3ZWVuIDUlIHRvIDYlLg0KMikgVG9wIDUgU3RhdGVzIHdpdGggbWF4aW11bSBtZWRpYW4gQUJWIGFyZS1EQywgV2VzdCBWaXJnaW5pYSxOZXcgTWV4aWNvLCBBbGFiYW1hLCBhbmQgQ29ubmVjdGljdXQuDQozKSBCb3R0b20gNSBTdGF0ZXMgd2l0aCBtaW5pbXVtIG1lZGlhbiBBQlYgYXJlLUthbnNhcywgTm9ydGggRGFrb3RhLCBXeW9taW5nLCBOZXcgSmVyc2V5IGFuZCBVdGFoLg0KNCkgRm9yIG1vc3Qgb2YgdGhlIHN0YXRlcyBoYXZpbmcgc3VmZmljaWVudCBsYXJnZSBzYW1wbGVzLCB0aGUgbWVkaWFuIG9mIEludGVybmF0aW9uYWwgQml0dGVybmVzcyBVbml0KElCVSkgaXMgaW4gbWlkIDQw4oCZcyANCjUpIFRvcCA1IFN0YXRlcyB3aXRoIG1heGltdW0gbWVkaWFuIElCVSBhcmUtV2VzdCBWaXJnaW5pYSxEZWxhd2FyZSwgTWlzc2lzc2lwcGksIEFsYWJhbWEsIGFuZCBBcmthbnNhcy4NCjYpIEJvdHRvbSA1IFN0YXRlcyB3aXRoIG1pbmltdW0gbWVkaWFuIElCVSBhcmUtTm9ydGggRGFrb3RhLCBSaG9kZSBJc2xhbmQsIFd5b21pbmcsIElvd2EsIEthbnNhcy4NCg0KIyMgV2hpY2ggc3RhdGUgaGFzIHRoZSBtYXhpbXVtIGFsY29ob2xpYyAoQUJWKSBiZWVyPyBXaGljaCBzdGF0ZSBoYXMgdGhlIG1vc3QgYml0dGVyIChJQlUpIGJlZXI/DQpUaGUgY29kZSB0aGF0IHNwZWNpZmljYWxseSBkZXRlcm1pbmVzIHRoZSBtb3N0IGFsY29ob2xpYyBhbmQgbW9zdCBiaXR0ZXIgYmVlciBpcyBhcHBsaWVkIHdoaWNoIHlpZWxkZWQgZm9sbG93aW5nIHJlc3VsdHM6DQoNCjEpIFVwc2xvcGUgQnJld2luZyBDb21wYW55LCBDb2xvcmFkbyBoYXMgdGhlIG1vc3QgQWxjb2hvbCBieSB2b2x1bWUgYmVlciB3aXRoIG5hbWUg4oCcTGVlIEhpbGwgU2VyaWVzIFZvbC4gNSAtIEJlbGdpYW4gU3R5bGUgUXVhZHJ1cGVsIEFsZeKAnSBvZiAxOS4yIE96IHdpdGggIEFCVj0xMi44JSBhbmQgbm8gSUJVIHNjb3JlIGlzICBnaXZlbi4NCjIpIEFzdG9yaWEgQnJld2luZyBDb21wYW55LCBPcmVnb24gaGFzIHRoZSBtb3N0IGJpdHRlciBiZWVyIHdpdGggbmFtZSDigJxCaXR0ZXIgQml0Y2ggSW1wZXJpYWwgSVBB4oCdIG9mIDEyIE96ICB3aXRoIElCVT0xMzggYW5kIEFCVj04LjIlLg0KDQojIyBDb21tZW50IG9uIHRoZSBzdW1tYXJ5IHN0YXRpc3RpY3MgYW5kIGRpc3RyaWJ1dGlvbiBvZiB0aGUgQUJWIHZhcmlhYmxlLg0KVGhlIGNvZGUgdGhhdCBzcGVjaWZpY2FsbHkgZGV0ZXJtaW5lcyBvdmVyYWxsIHN1bW1hcnkgc3RhdGlzdGljcyBvZiBBQlYgb2Ygd2hvbGUgZGF0YSBpcyBhcHBsaWVkIHdoaWNoIHlpZWxkZWQgZm9sbG93aW5nIHJlc3VsdHM6DQoNCjEpIEFCViBkaXN0cmlidXRpb24gaXMgcmVsYXRpdmVseSBub3JtYWwgd2l0aCBhIHJpZ2h0IHNrZXduZXNzLg0KMikgTG9va2luZyB0byBncmFwaCwgaXQgc2VlbXMgSVBBIGlzIGNvbnRyaWJ1dGluZyBtb3N0bHkgdG8gdGhlIHJpZ2h0IGluZGljYXRpbmcgdGhhdCBJUEEgaGFzIG1vcmUgYWxjb2hvbCBjb250ZW50IGluIGl0Lg0KMykgT3RoZXIgc3RhdGlzdGljcyBpbmNsdWRlcyBNaW5pbXVtPTAuMDEsIDFzdCBRdWFudGlsZT0wLjA1LCBNZWRpYW49MC4wNTYsIE1lYW49MC4wNTk3NywgM3JkIFF1YW50aWxlPTAuMDY3LCBNYXhpbXVtPTAuMTI4DQo0KSBCeSBpbXB1dGluZyB0aGUgbWVhbiB0aGUgbWVkaWFuIGNoYW5nZXMgdG8gMC4wNTcwIHdpdGggb3RoZXIgc3RhdGlzdGljcyBiZWluZyBzYW1lLg0KDQojIyBJcyB0aGVyZSBhIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIGJpdHRlcm5lc3MgYW5kIGFsY29ob2wgY29udGVudC4NCkEgc2NhdHRlcnBsb3QgaXMgZ2VuZXJhdGVkIHRvIGFuc3dlciB0aGlzIHF1ZXN0aW9uIHdoaWNoIGhhcyBmb2xsb3dpbmcgcmVzdWx0czoNCg0KMSkgVGhlcmUgaXMgYSBwb3NpdGl2ZSByZWxhdGlvbnNoaXAgYmV0d2VlbiBBQlYgYW5kIElCVS4NCjIpIFRoZSBncmFwaCBoYXZpbmcgd2l0aCBudWxsIHZhbHVlcyBhY2NvdW50IGZvciBhIHZhcmlhdGlvbiBvZiBhcHByb3hpbWF0ZWx5IDQ1JSBlc3RpbWF0ZWQgdGhhdCB0aGUgYml0dGVybmVzcyBvZiBhIHBhcnRpY3VsYXIgYmVlciBjYW4gYmUgYWNjb3VudGVkIGJ5IGl0cyBhbGNvaG9sIGNvbnRlbnQuDQozKSBUaGUgZ3JhcGggaGF2aW5nIHdpdGggaW1wdXRlZCBtZWFuIHZhbHVlcyBhY2NvdW50IGZvciBhIHZhcmlhdGlvbiBvZiBhcHByb3hpbWF0ZWx5IDI3JSBlc3RpbWF0ZWQgdGhhdCB0aGUgYml0dGVybmVzcyBvZiBhIHBhcnRpY3VsYXIgYmVlciBjYW4gYmUgYWNjb3VudGVkIGJ5IGl0cyBhbGNvaG9sIGNvbnRlbnQgYmVjYXVzZSBvZiBvbmUgbm9uLWFsY29ob2xpYyBiZWVyLg0KDQojIyBJbnZlc3RpZ2F0ZSB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIElQQXMgYW5kIG90aGVyIEFsZXMgYW5kIHVzZSBLTk4gZm9yIHByZWRpY3Rpb24uDQpUaGUgY29kZSBpcyBhcHBsaWVkIHdoaWNoIGludmVzdGlnYXRlIHRoZSBkaWZmZXJlbmNlIGJldHdlZW4gSVBBcyBhbmQgb3RoZXIgQWxlcyBhbmQgS05OIGNsYXNzaWZpZXIgaXMgdXNlZCBmb3IgcHJlZGljdGlvbiB3aGljaCB5aWVsZGVkIGZvbGxvd2luZyByZXN1bHRzOg0KDQoxKSBXZSB0cmFpbmVkIHRoZSBkYXRhIHVzaW5nIEstbmVhcmVzdCBuZWlnaGJvciBjbGFzc2lmaWVyIHdpdGggMTAwIGl0ZXJhdGlvbnMgYW5kIHRoZW4gdGVzdGVkIHRoZSBtb2RlbCBmb3IgaGlnaGVzdCBhY2N1cmFjeS4NCjIpIEEgay1uZWFyZXN0IG1vZGVsICh3aXRoIE5B4oCZcyBvbWl0dGVkKSBhdCBrPTUgZ2l2ZXMgYW4gYWNjdXJhY3kgb2YgODUlLCB3aGljaCBtZWFucyB0aGUgbnVtYmVyIG9mIGJlZXJzIGNvcnJlY3RseSBjbGFzc2lmaWVkIGFzIGVpdGhlciBJUEEgb3Igb3RoZXIgQWxlLg0KMylUaGUgbW9kZWwgaGFzIGEgc2Vuc2l0aXZpdHkgb2Ygb3ZlciA4OCUtLXdoaWNoIG1lYW5zIG92ZXIgODglICBvZiB0aGUgQWxlcyB3ZXJlIGlkZW50aWZpZWQgY29ycmVjdGx5LiANCjQpIEZpbmFsbHksIHRoZSBtb2RlbCBoYXMgYSBzcGVjaWZpY2l0eSBvZiBvdmVyIDgxJS0td2hpY2ggbWVhbnMgb3ZlciA4MSUgb2YgdGhlIElQQSdzICB3ZXJlIGlkZW50aWZpZWQgY29ycmVjdGx5Lg0KDQoNCiMjIEV4dHJhIGluc2lnaHRzIHRoYXQgY2FuIGJlIHVzZWZ1bA0KDQojIyMgQUJWIGFuZCBJQlUgcmVsYXRpb25zaGlwIGZvciBJUEEgYW5kIEFsZS4NCkEgc2NhdHRlcnBsb3QgaXMgZ2VuZXJhdGVkIHRvIGFuc3dlciB0aGlzIHF1ZXN0aW9uIHdoaWNoIGhhcyBmb2xsb3dpbmcgcmVzdWx0czoNCg0KMSkgSVBBIGhhcyBwb3NpdGl2ZSByZWxhdGlvbnNoaXAgd2l0aCBhIHZhcmlhdGlvbiBvZiBhcHByb3hpbWF0ZWx5IDQxJSBlc3RpbWF0ZWQgdGhhdCB0aGUgYml0dGVybmVzcyhJQlUpIG9mIGEgcGFydGljdWxhciBiZWVyIGNhbiBiZSBhY2NvdW50ZWQgYnkgaXRzIGFsY29ob2wgY29udGVudChBQlYpLg0KMikgQWxlIGhhcyBhIHBvc2l0aXZlIHJlbGF0aW9uc2hpcCBsb3dlciB0aGFuIElQQSB3aXRoIGEgdmFyaWF0aW9uIG9mIGFwcHJveGltYXRlbHkgMjQlIGVzdGltYXRlZCB0aGF0IHRoZSBiaXR0ZXJuZXNzKElCVSkgb2YgYSBwYXJ0aWN1bGFyIGJlZXIgY2FuIGJlIGFjY291bnRlZCBieSBpdHMgYWxjb2hvbCBjb250ZW50KEFCVikuDQoNCiMjIyBBbGNvaG9sIENvbnN1bXB0aW9uIHBlciBjYXBpdGEgcGVyIGJyZXdlcnkgQ291bnQuDQpBIG5ldyBjc3YgbmFtZWQgImFsY29ob2wgY29uc3VtcHRpb24uY3N2IiBpcyB1c2VkIGluIHRoaXMgcXVlc3Rpb24uDQpBIGhlYXRtYXAgYW5kIGEgYmFyY2hhcnQgaXMgZ2VuZXJhdGVkIHRvIGFuc3dlciB0aGlzIHF1ZXN0aW9uIHdoaWNoIGhhcyBmb2xsb3dpbmcgcmVzdWx0czoNCg0KMSkgQ2FsaWZvcm5pYSBoYXMgdGhlIGhpZ2hlc3QgYWxjb2hvbCBjb25zdW1wdGlvbiBwZXIgY2FwaXRhIHBlciBicmV3ZXJ5IGNvdW50IGF0IDEuNjI0IGdhbGxvbnMuDQoyKSBNb3N0IG9mIHRoZSBzdGF0ZXMgaGF2ZSBhbGNvaG9sIGNvbnN1bXB0aW9uIHBlciBjYXBpdGEgYnJld2VyeSBjb3VudCBpcyBpbiBiZXR3ZWVuIDAuMDI2IHRvIDAuNSBnYWxsb25zDQozKSBUaGUgdG9wIDUgc3RhdGVzIGFjY291bnQgZm9yIDQyJSBvZiBhbGwgdGhlIGFsY29ob2wgY29uc3VtZWQgcGVyIGNhcGl0YSBwZXIgYnJld2VyeSBjb3VudC4gDQo0KSBUaGUgYm90dG9tIDUgc3RhdGVzIGFjY291bnQgZm9yIDEuMzIlIG9mIGFsbCB0aGUgYWxjb2hvbCBjb25zdW1lZCBwZXIgY2FwaXRhIHBlciBicmV3ZXJ5IGNvdW50Lg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNNVSA2MzA2LURvaW5nIERhdGEgU2NpZW5jZSBDYXNlIFN0dWR5IDEoU3ByaW5nIDIwMjEpIg0Kb3V0cHV0OiANCiAgaHRtbF9ub3RlYm9vazoNCiAgICB0aGVtZTogc3BhY2VsYWINCiAgICB0b2M6IHllcw0KICAgIHRvY19mb2xhdDogeWVzDQotLS0NCg0KDQoNCiMgUHJvamVjdCBEZXNjcmlwdGlvbg0KDQpUaGUgcHVycG9zZSBvZiB0aGlzIHByb2plY3QgaXMgdG8gc3R1ZHkgYSBkYXRhc2V0IG9mIDI0MTAgYmVlcnMgcHJvZHVjZWQgYnkgNTU4IA0KYnJld2VyaWVzIGluIHRoZSBVbml0ZWQgU3RhdGVzLiAgV2UgaGF2ZSBkYXRhIG9uIHRoZSBzdHlsZSwgQUJWIChhbGNvaG9sIGJ5IHZvbHVtZSkNCmFuZCBJQlUgKGludGVybmF0aW9uYWwgYml0dGVybmVzcyB1bml0cykgb2YgZWFjaCBiZWVyLCBhbmQgd2UgaGF2ZSB0aGUgY2l0eQ0KYW5kIHN0YXRlIGZvciBlYWNoIGJyZXdlcnkuICBUaGUgZ29hbCBpcyB0byBhbnN3ZXIgc29tZSBzcGVjaWZpYyBxdWVzdGlvbnMgDQphYm91dCB0aGUgZGF0YSBhbmQgdG8gbG9vayBmb3IgcmVsYXRpb25zaGlwcyBvciBpbmZlcmVuY2VzIHdoaWNoIG1heSBiZSBvZg0KaW50ZXJlc3QgdG8gYSBzcG9uc29yLCBCdWR3ZWlzZXIuDQoNCiMgTG9hZCBQYWNrYWdlcyB7LnRhYnNldH0NCg0KVGhlc2UgYXJlIGFsbCB0aGUgcGFja2FnZXMgdGhhdCBhcmUgdXNlZCBpbiB0aGUgcHJvamVjdCB0byBhbmFseXplIHRoZSBkYXRhIGFuZCBwZXJmb3JtIHRoZSBhZ2VuZGEgdGhhdCB3ZXJlIGFza2VkIGJ5IHRoZSBjbGllbnQuDQoNCiMjIHRpZHl2ZXJzZQ0KYGBge3J9DQojY2hlY2sgaWYgdGlkeXZlcnNlIGlzIGFscmVhZHkgaW5zdGFsbGVkIG9yIG5vdCBhbmQgaWYgaXQgaXMsIHRoZW4gbG9hZCBpdC4NCmlmKCFyZXF1aXJlKHRpZHl2ZXJzZSkpDQogICNJZiBpdCBpcyBub3QgaW5zdGFsbGVkLiB0aGVuIHRlbGwgUiB0byBpbnN0YWxsIGl0Lg0KICBpbnN0YWxsLnBhY2thZ2VzKCJ0aWR5dmVyc2UiLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQ0KI09uY2UgaXQgaXMgaW5zdGFsbGVkLCB0ZWxsIFIgdG8gbG9hZCBpdC4NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQojIyBtYXBzDQpgYGB7cn0NCiNjaGVjayBpZiBtYXBzIGlzIGFscmVhZHkgaW5zdGFsbGVkIG9yIG5vdCBhbmQgaWYgaXQgaXMsIHRoZW4gbG9hZCBpdC4NCmlmKCFyZXF1aXJlKG1hcHMpKQ0KICAjSWYgaXQgaXMgbm90IGluc3RhbGxlZC4gdGhlbiB0ZWxsIFIgdG8gaW5zdGFsbCBpdC4NCiAgaW5zdGFsbC5wYWNrYWdlcygibWFwcyIsIGRlcGVuZGVuY2llcyA9IFRSVUUpDQojT25jZSBpdCBpcyBpbnN0YWxsZWQsIHRlbGwgUiB0byBsb2FkIGl0Lg0KbGlicmFyeShtYXBzKQ0KYGBgDQojIyBjYXJldA0KYGBge3J9DQojY2hlY2sgaWYgY2FyZXQgaXMgYWxyZWFkeSBpbnN0YWxsZWQgb3Igbm90IGFuZCBpZiBpdCBpcywgdGhlbiBsb2FkIGl0Lg0KaWYoIXJlcXVpcmUoY2FyZXQpKQ0KICAjSWYgaXQgaXMgbm90IGluc3RhbGxlZC4gdGhlbiB0ZWxsIFIgdG8gaW5zdGFsbCBpdC4NCiAgaW5zdGFsbC5wYWNrYWdlcygiY2FyZXQiLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQ0KI09uY2UgaXQgaXMgaW5zdGFsbGVkLCB0ZWxsIFIgdG8gbG9hZCBpdC4NCmxpYnJhcnkoY2FyZXQpDQpgYGANCiMjIGNsYXNzDQpgYGB7cn0NCiNjaGVjayBpZiBjbGFzcyBpcyBhbHJlYWR5IGluc3RhbGxlZCBvciBub3QgYW5kIGlmIGl0IGlzLCB0aGVuIGxvYWQgaXQuDQppZighcmVxdWlyZShjbGFzcykpDQogICNJZiBpdCBpcyBub3QgaW5zdGFsbGVkLiB0aGVuIHRlbGwgUiB0byBpbnN0YWxsIGl0Lg0KICBpbnN0YWxsLnBhY2thZ2VzKCJjbGFzcyIsIGRlcGVuZGVuY2llcyA9IFRSVUUpDQojT25jZSBpdCBpcyBpbnN0YWxsZWQsIHRlbGwgUiB0byBsb2FkIGl0Lg0KbGlicmFyeShjbGFzcykNCmBgYA0KDQojIFN0dWR5IGRlc2lnbiBhbmQgZGF0YSBwcm9jZXNzaW5nDQoNCiMjIENvbGxlY3Rpb24gb2YgdGhlIHJhdyBkYXRhDQpEYXRhIHdhcyBwcm92aWRlZCBieSB0aGUgY2xpZW50IGluIHR3byB0ZXh0IC5jc3YgZmlsZXMuDQoxKSBCZWVycy5jc3YNCjIpIEJyZXdlcmllcy5jc3YNCg0KIyMgTm90ZXMgb24gdGhlIG9yaWdpbmFsIChyYXcpIGRhdGEgDQpCZWVycy5jc3YNCjI0MTAgT2JzZXJ2YXRpb25zLiAgDQpOYW1lOiBOYW1lIG9mIHRoZSBiZWVyLiAgIA0KQmVlcl9JRDogVW5pcXVlIGlkZW50aWZpZXIgb2YgdGhlIGJlZXIuICANCkFCVjogQWxjb2hvbCBieSB2b2x1bWUgb2YgdGhlIGJlZXIuICANCklCVTogSW50ZXJuYXRpb25hbCBCaXR0ZXJuZXNzIFVuaXRzIG9mIHRoZSBiZWVyLiAgDQpCcmV3ZXJ5X0lEOiBCcmV3ZXJ5IGlkIGFzc29jaWF0ZWQgd2l0aCB0aGUgYmVlci4gIA0KU3R5bGU6IFN0eWxlIG9mIHRoZSBiZWVyLiAgDQpPdW5jZXM6IE91bmNlcyBvZiBiZWVyLiAgDQoNCkJyZXdlcmllcy5jc3Y6ICANCjU1OCBPYnNlcnZhdGlvbnMuICANCkJyZXdfSUQ6IFVuaXF1ZSBpZGVudGlmaWVyIG9mIHRoZSBicmV3ZXJ5LiAgDQpOYW1lOiBOYW1lIG9mIHRoZSBicmV3ZXJ5LiAgDQpDaXR5OiBDaXR5IHdoZXJlIHRoZSBicmV3ZXJ5IGlzIGxvY2F0ZWQuICANClN0YXRlOiBVLlMuIFN0YXRlIHdoZXJlIHRoZSBicmV3ZXJ5IGlzIGxvY2F0ZWQuICANCg0KIyBEZXNjcmlwdGlvbiBvZiB0aGUgdmFyaWFibGVzIGluIHRoZSBtZXJnZWQgZGF0YXNldA0KDQojIyBCZWVyX25hbWUgIA0KTmFtZSBvZiB0aGUgYmVlci4gICANCg0KIyMgQmVlcl9JRA0KSW50ZWdlciBpZCBudW1iZXIgdG8gdW5pcXVlbHkgaWRlbnRpZnkgZWFjaCBiZWVyLg0KDQojIyBBQlYNCkFsY29ob2wgYnkgdm9sdW1lIChleHByZXNzZWQgYXMgZGVjaW1hbCBmcmFjdGlvbikuDQoNCiMjIElCVQ0KSW50ZXJuYXRpb25hbCBCaXR0ZXJuZXNzIFVuaXRzIG9mIHRoZSBiZWVyIChhbiBpbnRlZ2VyKS4NCg0KIyMgQnJld19JRA0KSW50ZWdlciBpZCBudW1iZXIgdG8gdW5pcXVlbHkgaWRlbnRpZnkgdGhlIGJyZXdlcnkgd2hpY2ggcHJvZHVjZWQgdGhlIGJlZXIuDQoNCiMjIFN0eWxlDQpDaGFyYWN0ZXIgc3RyaW5nIHN0b3JlZCBhcyBhIGZhY3RvciB3aXRoIDEwMCBkaXN0aW5jdCB2YWx1ZXMuDQoNCiMjIE91bmNlcw0KU2VydmluZyBzaXplIGluIG91bmNlcywgcmVwcmVzZW50ZWQgYXMgaW50ZWdlci4NCg0KIyMgQnJld2VyeV9uYW1lDQpDaGFyYWN0ZXIgc3RyaW5nIHN0b3JlZCBhcyBhIGZhY3RvciB3aXRoIDU1MSBkaXN0aW5jdCB2YWx1ZXMuDQoNCiMjIENpdHkNCkNoYXJhY3RlciBzdHJpbmcgc3RvcmVkIGFzIGEgZmFjdG9yIHdpdGggMzg0IGRpc3RpbmN0IHZhbHVlcy4NCg0KIyMgU3RhdGUNClR3byBDaGFyYWN0ZXIgc3RyaW5nIHN0b3JlZCBhcyBhIGZhY3RvciB3aXRoIDUxIGRpc3RpbmN0IHZhbHVlcy4NCg0KIyBGb3IgZmluZGluZyBzb21lIGV4dHJhIHVzZWZ1bCBpbnNpZ2h0cw0KDQojIyBDb2xsZWN0aW9uIG9mIGV4dGVybmFsIGRhdGEuDQoNCkEgbmV3IGNzdiBuYW1lZCAiQWxjb2hvbF9jb25zdW1wdGlvbi5jc3YiIGlzIHVzZWQgaGF2aW5nIGFsY29ob2wgY29uc3VtcHRpb24gcGVyIGJyZXdlcnkgQ291bnQuDQoNCiMjIE5vdGVzIG9uIHRoZSBleHRlcm5hbCBkYXRhDQpBbGNvaG9sX2NvbnN1bXB0aW9uLmNzdg0KNTEgb2JzZXJ2YXRpb25zDQpSYW5rOiBUaGUgcmFua3MgYXJlIGFzc2lnbmVkIHRvIGVhY2ggc3RhdGUgYWNjb3JkaW5nIHRvIGhpZ2hlc3QgdG8gbG93ZXN0IGNvbnN1bXB0aW9uDQpTdGF0ZTogU3RhdGUgTmFtZQ0KR2FsbG9ucyBPdmVyYWxsOiBUaGUgdmFsdWVzIGdpdmVuIGFyZSBpbiBNaWxsaW9ucw0KDQojIERlc2NyaXB0aW9uIG9mIHRoZSB2YXJpYWJsZXMgaW4gdGhlIG1lcmdlZCBkYXRhc2V0DQoNCiMjIFJhbmsNCkludGVnZXIgaWQgbnVtYmVyIHRvIHVuaXF1ZWx5IGlkZW50aWZ5IHRoZSByYW5rIG9mIGVhY2ggc3RhdGUuDQoNCiMjIFN0YXRlDQpDaGFyYWN0ZXIgc3RyaW5nIGNvbnRhaW5pbmcgdGhlIHN0YXRlIG5hbWUNCg0KIyMgT3ZlcmFsbCBHYWxsb25zDQpJbnRlZ2VyIHZhcmlhYmxlIHRoYXQgaGFzIHZhbHVlcyBpbiBtaWxsaW9uIGdhbGxvbnMNCg0K</div>
 
 
 

@@ -16,7 +16,7 @@ breweries in the United States.  We have data on the style, ABV (alcohol by volu
 and IBU (international bitterness units) of each beer, and we have the city
 and state for each brewery.  The goal is to answer some specific questions 
 about the data and to look for relationships or inferences which may be of
-interest to a hypothetical sponsor, Budweiser.
+interest to a sponsor, Budweiser.
 
 # Load Packages {.tabset}
 
@@ -116,82 +116,27 @@ Character string stored as a factor with 384 distinct values.
 ## State
 Two Character string stored as a factor with 51 distinct values.
 
-# Question of Interest for Case study 1
+# For finding some extra useful insights
 
-## How many breweries are present in each state?
-A heatmap and a barchart is generated to answer this question which has following results:
+## Collection of external data.
 
-1) Colorado has the maximum number of breweries in United States with a count of 47.
-2) Other than Colorado, the states having most breweries are clustered along US border and coasts.
-3) Top 5 States with maximum breweries are-Colorado, California, Michigan, Oregon, and Texas.
-4) Bottom 4 States with minimum breweries are-DC, South Dakota, North Dakota, West Virginia because each state has only one brewery in entire state.
+A new csv named "Alcohol_consumption.csv" is used having alcohol consumption per brewery Count.
 
-## Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the merged file. 
-After merging the datasets there are 10 columns and 2410 rows.
-The top 6 and bottom 6 rows are obtained in this.
+## Notes on the external data
+Alcohol_consumption.csv
+51 observations
+Rank: The ranks are assigned to each state according to highest to lowest consumption
+State: State Name
+Gallons Overall: The values given are in Millions
 
-## Address the missing values in each column.
-A lollipop plot is generated to answer this question which has following results:
+# Description of the variables in the merged dataset
 
-1) 62 null values are found in the ABV column which is approximately 2.6%.
-2) 1005 null values are found in the IBU column which is approximately 42%. 
-3) Bitterness data is not available for South Dakota(only 1 brewery in entire state).
-4) Thinking the missing values would be close to the average, we replaced them with the averages of the present values.
+## Rank
+Integer id number to uniquely identify the rank of each state.
 
+## State
+Character string containing the state name
 
-## Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.
-A barchart is generated to answer this question which has following results:
-
-1) For almost all the states, we found median Alcohol by volume in between 5% to 6%.
-2) Top 5 States with maximum median ABV are-DC, West Virginia,New Mexico, Alabama, and Connecticut.
-3) Bottom 5 States with minimum median ABV are-Kansas, North Dakota, Wyoming, New Jersey and Utah.
-4) For most of the states having sufficient large samples, the median of International Bitterness Unit(IBU) is in mid 40’s 
-5) Top 5 States with maximum median IBU are-West Virginia,Delaware, Mississippi, Alabama, and Arkansas.
-6) Bottom 5 States with minimum median IBU are-North Dakota, Rhode Island, Wyoming, Iowa, Kansas.
-
-## Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
-The code that specifically determines the most alcoholic and most bitter beer is applied which yielded following results:
-
-1) Upslope Brewing Company, Colorado has the most Alcohol by volume beer with name “Lee Hill Series Vol. 5 - Belgian Style Quadrupel Ale” of 19.2 Oz with  ABV=12.8% and no IBU score is  given.
-2) Astoria Brewing Company, Oregon has the most bitter beer with name “Bitter Bitch Imperial IPA” of 12 Oz  with IBU=138 and ABV=8.2%.
-
-## Comment on the summary statistics and distribution of the ABV variable.
-The code that specifically determines overall summary statistics of ABV of whole data is applied which yielded following results:
-
-1) ABV distribution is relatively normal with a right skewness.
-2) Looking to graph, it seems IPA is contributing mostly to the right indicating that IPA has more alcohol content in it.
-3) Other statistics includes Minimum=0.01, 1st Quantile=0.05, Median=0.056, Mean=0.05977, 3rd Quantile=0.067, Maximum=0.128
-4) By imputing the mean the median changes to 0.0570 with other statistics being same.
-
-## Is there a relationship between bitterness and alcohol content.
-A scatterplot is generated to answer this question which has following results:
-
-1) There is a positive relationship between ABV and IBU.
-2) The graph having with null values account for a variation of approximately 45% estimated that the bitterness of a particular beer can be accounted by its alcohol content.
-3) The graph having with imputed mean values account for a variation of approximately 27% estimated that the bitterness of a particular beer can be accounted by its alcohol content because of one non-alcoholic beer.
-
-## Investigate the difference between IPAs and other Ales and use KNN for prediction.
-The code is applied which investigate the difference between IPAs and other Ales and KNN classifier is used for prediction which yielded following results:
-
-1) We trained the data using K-nearest neighbor classifier with 100 iterations and then tested the model for highest accuracy.
-2) A k-nearest model (with NA’s omitted) at k=5 gives an accuracy of 85%, which means the number of beers correctly classified as either IPA or other Ale.
-3)The model has a sensitivity of over 88%--which means over 88%  of the Ales were identified correctly. 
-4) Finally, the model has a specificity of over 81%--which means over 81% of the IPA's  were identified correctly.
-
-
-## Extra insights that can be useful
-
-### ABV and IBU relationship for IPA and Ale.
-A scatterplot is generated to answer this question which has following results:
-
-1) IPA has positive relationship with a variation of approximately 41% estimated that the bitterness(IBU) of a particular beer can be accounted by its alcohol content(ABV).
-2) Ale has a positive relationship lower than IPA with a variation of approximately 24% estimated that the bitterness(IBU) of a particular beer can be accounted by its alcohol content(ABV).
-
-### Alcohol Consumption per capita per brewery Count.
-A heatmap and a barchart is generated to answer this question which has following results:
-
-1) California has the highest alcohol consumption per capita per brewery count at 1.624 gallons.
-2) Most of the states have alcohol consumption per capita brewery count is in between 0.026 to 0.5 gallons
-3) The top 5 states account for 42% of all the alcohol consumed per capita per brewery count. 
-4) The bottom 5 states account for 1.32% of all the alcohol consumed per capita per brewery count.
+## Overall Gallons
+Integer variable that has values in million gallons
 
